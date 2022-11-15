@@ -16,6 +16,7 @@ const Shop = () => {
     const handleCartShow = () => {
         setIsCartShow(!isCartShow)
     }
+
     const addToCart = (item) => {
         const itemIndex = order.findIndex((orderItem) => orderItem.id === item.id)
         if (itemIndex < 0) {
