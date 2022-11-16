@@ -115,10 +115,14 @@ nav .brand-logo {
 }
 
 #toast-container {
-    top: 3rem!important;
-    right: 1rem;
-    left: auto;
-    animation: fade-in .25s ease-in-out ;
+    width: fit-content;
+    top: 2rem!important;
+    right: 7rem;
+    animation: fade-in .25s ease-in-out;
+}
+
+#toast-container .toast{
+    opacity: 0.9;
 }
 
 

@@ -1,15 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {ShopContext} from "../context";
 import CartItem from "./CartItem";
 
 
-const CartList = (
-    {
+const CartList = () => {
+
+    const {
         order = [],
         handleCartShow,
-        removeFromCart,
-        increaseQuantity,
-        decreaseQuantity
-    }) => {
+    } = useContext(ShopContext)
 
     const totalPrice = order.reduce((sum, el) => {
         return sum + el.price * el.quantity
@@ -17,7 +16,6 @@ const CartList = (
     const totalQuantity = order.reduce((quantity, el) => {
         return quantity + el.quantity
     }, 0)
-
 
     return (
 
@@ -33,9 +31,6 @@ const CartList = (
                     return <CartItem
                         key={item.id}
                         {...item}
-                        removeFromCart={removeFromCart}
-                        increaseQuantity={increaseQuantity}
-                        decreaseQuantity={decreaseQuantity}
                     />
                 }) : (
                     <li className='collection-item'>Cart is Empty :(</li>
@@ -43,7 +38,7 @@ const CartList = (
             }
             <li className="collection-item active">Total Price: {totalPrice} ({totalQuantity} pcs.)</li>
             <li className="collection-item checkout ">
-                    <button className='btn btn-small'>Checkout</button>
+                <button className='btn btn-small'>Checkout</button>
             </li>
         </ul>
 
